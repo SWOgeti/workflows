@@ -1,0 +1,15 @@
+###
+# example of how to implement the ru-maven workflow from a calling repository
+###
+name: build maven
+on:
+  push:
+    branches: 
+      - main
+      - master
+
+
+jobs:
+  call-workflow:
+    uses: swogeti/workflows/.github/workflows/ru-maven.yaml@main
+    secrets: inherit #this will pass existing secrets in the calling repository to the reusable workflow (with the matching names)
